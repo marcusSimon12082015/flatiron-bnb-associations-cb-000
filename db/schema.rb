@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181017182028) do
+ActiveRecord::Schema.define(version: 20181021180631) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20181017182028) do
     t.integer  "host_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "city_id"
   end
 
+  add_index "listings", ["city_id"], name: "index_listings_on_city_id"
   add_index "listings", ["host_id"], name: "index_listings_on_host_id"
   add_index "listings", ["neighborhood_id"], name: "index_listings_on_neighborhood_id"
 
