@@ -1,3 +1,56 @@
 
 City
   has a name
+  has many neighborhoods
+  listings
+    has many listings through neighborhoods (FAILED - 1)
+
+Failures:
+
+  1) City listings has many listings through neighborhoods
+     Failure/Error:
+       Listing.create(
+         address: '123 Main Street',
+         listing_type: "private room",
+         title: "Beautiful Apartment on Main Street",
+         description: "My apartment is great. there's a bedroom. close to subway....blah blah",
+         price: 50.00,
+         neighborhood: fidi,
+         host: user
+       )
+
+     ActiveModel::MissingAttributeError:
+       can't write unknown attribute `listing_id`
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute.rb:138:in `with_value_from_database'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_set.rb:39:in `write_from_user'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_methods/write.rb:74:in `write_attribute_with_type_cast'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_methods/write.rb:56:in `write_attribute'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_methods/dirty.rb:97:in `write_attribute'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_methods.rb:369:in `[]='
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/association.rb:195:in `block in set_owner_attributes'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/association.rb:195:in `each'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/association.rb:195:in `set_owner_attributes'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/has_one_association.rb:38:in `block in replace'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/has_one_association.rb:101:in `transaction_if'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/has_one_association.rb:34:in `replace'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/singular_association.rb:17:in `writer'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/builder/association.rb:123:in `neighborhood='
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_assignment.rb:54:in `public_send'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_assignment.rb:54:in `_assign_attribute'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_assignment.rb:41:in `block in assign_attributes'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_assignment.rb:35:in `each'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/attribute_assignment.rb:35:in `assign_attributes'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/core.rb:566:in `init_attributes'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/core.rb:281:in `initialize'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/inheritance.rb:61:in `new'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/inheritance.rb:61:in `new'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/persistence.rb:33:in `create'
+     # ./spec/models/city_spec.rb:22:in `block (3 levels) in <top (required)>'
+
+Finished in 0.10303 seconds (files took 4.01 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/city_spec.rb:33 # City listings has many listings through neighborhoods
+
