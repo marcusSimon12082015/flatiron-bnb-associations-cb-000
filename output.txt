@@ -1,0 +1,10 @@
+
+City
+  has a name
+  has many neighborhoods
+  listings
+    has many listings through neighborhoods
+
+Finished in 0.11926 seconds (files took 3.91 seconds to load)
+3 examples, 0 failures
+
