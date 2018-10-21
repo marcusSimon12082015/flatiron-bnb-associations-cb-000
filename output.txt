@@ -1,6 +1,0 @@
-
-City
-  has a name
-  has many neighborhoods
-  listings
-    has many listings through neighborhoods (FAILED - 1)
