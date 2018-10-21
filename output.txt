@@ -1,3 +1,24 @@
 
 City
   has a name
+  has many neighborhoods
+  listings
+    has many listings through neighborhoods (FAILED - 1)
+
+Failures:
+
+  1) City listings has many listings through neighborhoods
+     Failure/Error: expect(nyc.listings).to include(listing)
+
+     NoMethodError:
+       undefined method `listings' for #<City:0x00000006c68c10>
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activemodel-4.2.7.1/lib/active_model/attribute_methods.rb:433:in `method_missing'
+     # ./spec/models/city_spec.rb:34:in `block (3 levels) in <top (required)>'
+
+Finished in 0.13699 seconds (files took 4.06 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/city_spec.rb:33 # City listings has many listings through neighborhoods
+
