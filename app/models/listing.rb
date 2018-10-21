@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
   belongs_to :host, :class_name => "User"
-  has_one :neighborhood
+  belongs_to :neighborhood
   has_one :city, :through => :neighborhood
 end
