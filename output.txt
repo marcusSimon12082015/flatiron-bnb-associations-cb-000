@@ -1,0 +1,44 @@
+
+City
+  has a name
+  has many neighborhoods
+  listings
+    has many listings through neighborhoods (FAILED - 1)
+
+Failures:
+
+  1) City listings has many listings through neighborhoods
+     Failure/Error: expect(nyc.listings).to include(listing)
+
+     ActiveRecord::StatementInvalid:
+       SQLite3::SQLException: no such column: listings.city_id: SELECT  1 AS one FROM "listings" WHERE "listings"."city_id" = ? AND "listings"."id" = ? LIMIT 1
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/sqlite3-1.3.13/lib/sqlite3/database.rb:91:in `initialize'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/sqlite3-1.3.13/lib/sqlite3/database.rb:91:in `new'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/sqlite3-1.3.13/lib/sqlite3/database.rb:91:in `prepare'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:294:in `block in exec_query'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract_adapter.rb:484:in `block in log'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activesupport-4.2.7.1/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract_adapter.rb:478:in `log'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/sqlite3_adapter.rb:281:in `exec_query'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract/database_statements.rb:356:in `select'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract/database_statements.rb:32:in `select_all'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract/query_cache.rb:70:in `select_all'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract/database_statements.rb:38:in `select_one'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/connection_adapters/abstract/database_statements.rb:43:in `select_value'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/relation/finder_methods.rb:302:in `exists?'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/collection_association.rb:383:in `include?'
+     # /usr/local/rvm/gems/ruby-2.3.1/gems/activerecord-4.2.7.1/lib/active_record/associations/collection_proxy.rb:858:in `include?'
+     # ./spec/models/city_spec.rb:34:in `block (3 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # SQLite3::SQLException:
+     #   no such column: listings.city_id
+     #   /usr/local/rvm/gems/ruby-2.3.1/gems/sqlite3-1.3.13/lib/sqlite3/database.rb:91:in `initialize'
+
+Finished in 0.11007 seconds (files took 4.74 seconds to load)
+3 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/city_spec.rb:33 # City listings has many listings through neighborhoods
+
