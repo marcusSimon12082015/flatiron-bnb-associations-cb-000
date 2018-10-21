@@ -1,0 +1,5 @@
+
+City
+  has a name
+  has many neighborhoods
+  listings
